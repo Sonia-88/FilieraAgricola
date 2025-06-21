@@ -14,16 +14,16 @@ public class ProdottoBase implements com.ids.ProgettoIDS.Model.Interface.Prodott
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Integer idProdottoBase;
-  private Integer idAnaggrafica;
+  private Integer idAnagrafica;
   private String prodotto;
   private String packaging;
   private Double prezzoDiVendita;
-  private String conezione;
+  private String confezione;
   private String descrizioneBreve;
   private String descrizioneEstesa;
   private String luogoProduzione;
   private String luogoRaccolta;
-  private Boolean aprovazioneCuratore;
+  private Boolean approvazioneCuratore;
   private Boolean deleted;
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
   private Date dataUltimaModifica;
@@ -31,16 +31,16 @@ public class ProdottoBase implements com.ids.ProgettoIDS.Model.Interface.Prodott
 
   public ProdottoBase(Integer idProdottoBase, Integer idAnaggrafica, String prodotto, String packaging, Double prezzoDiVendita, String conezione, String descrizioneBreve, String descrizioneEstesa, String luogoProduzione, String luogoRaccolta, Boolean aprovazioneCuratore) {
     this.idProdottoBase = idProdottoBase;
-    this.idAnaggrafica = idAnaggrafica;
+    this.idAnagrafica = idAnaggrafica;
     this.prodotto = prodotto;
     this.packaging = packaging;
     this.prezzoDiVendita = prezzoDiVendita;
-    this.conezione = conezione;
+    this.confezione = conezione;
     this.descrizioneBreve = descrizioneBreve;
     this.descrizioneEstesa = descrizioneEstesa;
     this.luogoProduzione = luogoProduzione;
     this.luogoRaccolta = luogoRaccolta;
-    this.aprovazioneCuratore = aprovazioneCuratore;
+    this.approvazioneCuratore = aprovazioneCuratore;
   }
 
   private void utenteUltimaModifica() {
@@ -59,12 +59,12 @@ public class ProdottoBase implements com.ids.ProgettoIDS.Model.Interface.Prodott
     utenteUltimaModifica();
   }
 
-  public Integer getIdAnaggrafica() {
-    return idAnaggrafica;
+  public Integer getIdAnagrafica() {
+    return idAnagrafica;
   }
 
-  public void setIdAnaggrafica(Integer idAnaggrafica) {
-    this.idAnaggrafica = idAnaggrafica;
+  public void setIdAnagrafica(Integer idAnagrafica) {
+    this.idAnagrafica = idAnagrafica;
     utenteUltimaModifica();
   }
 
@@ -96,12 +96,12 @@ public class ProdottoBase implements com.ids.ProgettoIDS.Model.Interface.Prodott
     utenteUltimaModifica();
   }
 
-  public String getConezione() {
-    return conezione;
+  public String getConfezione() {
+    return confezione;
   }
 
-  public void setConezione(String conezione) {
-    this.conezione = conezione;
+  public void setConfezione(String confezione) {
+    this.confezione = confezione;
     utenteUltimaModifica();
   }
 
@@ -141,12 +141,12 @@ public class ProdottoBase implements com.ids.ProgettoIDS.Model.Interface.Prodott
     utenteUltimaModifica();
   }
 
-  public Boolean getAprovazioneCuratore() {
-    return aprovazioneCuratore;
+  public Boolean getApprovazioneCuratore() {
+    return approvazioneCuratore;
   }
 
-  public void setAprovazioneCuratore(Boolean aprovazioneCuratore) {
-    this.aprovazioneCuratore = aprovazioneCuratore;
+  public void setApprovazioneCuratore(Boolean approvazioneCuratore) {
+    this.approvazioneCuratore = approvazioneCuratore;
     utenteUltimaModifica();
   }
 
