@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Mappa OSM</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        #map { height: 500px; }
+    </style>
+</head>
+<body>
+<h2>Mappa coordinate prodotti</h2>
+<div id="map"></div>
+<script>
+
+       const params = new URLSearchParams(window.location.search);
+       let endpoint = params.get("endPoint");
+       const codice = params.get("codice");
+
+       if (codice !== "") {
+           endpoint = `${endpoint}?codice=${codice}`;
+       }
+
+           fetch(endpoint)
+               .then(response => response.json())
+               .then(data => {
+                   if (data.length > 0) {
+                       const map = L.map('map').setView([data[0].latitude, data[0].longitude], 5);
+
+                       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                           attribution: '&copy; OpenStreetMap contributors'
+                       }).addTo(map);
+
+                       data.forEach(coord => {
+                           L.marker([coord.latitude, coord.longitude]).addTo(map)
+                               .bindPopup(`<strong>${coord.descrizioneBreve}</strong><br>Lat: ${coord.latitude}, Lng: ${coord.longitude}`);
+                       });
+                   } else {
+                       console.error("Nessuna coordinata ricevuta.");
+                   }
+               })
+               .catch(error => console.error("Errore nel recupero delle coordinate:", error));
+
+</script>
+
+
+</body>
+</html>
