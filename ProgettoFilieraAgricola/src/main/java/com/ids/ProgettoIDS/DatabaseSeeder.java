@@ -49,7 +49,7 @@ public class DatabaseSeeder implements CommandLineRunner {
         //ProdottoLavoratoTestata//
         ///////////////////////////
         System.out.println("Popolo dati in ProdottoLavoratoTestata");
-        entityManager.persist(new ProdottoLavoratoTestata(null,2,"Olio al tartufo","1 L",17.99,"bottiglia","Un olio aromatizzato al tartufo","Un olio in cui l'aroma di tartufo è essanziale per BLA BLA BLA","43.136225, 13.064481",true));
+        entityManager.persist(new ProdottoLavoratoTestata(null,2,"Olio al tartufo","1 L",17.99,"bottiglia","Un olio aromatizzato al tartufo","Un olio in cui l'aroma di tartufo è essenziale per BLA BLA BLA","43.136225, 13.064481",true));
         entityManager.persist(new ProdottoLavoratoTestata(null,2,"Succo di Mela","1 L",2.99,"bottiglia","Succo di frutta 100% mela","Succo di frutta 100% mela prodotto sui monti Sibillini","42.8245804589843, 13.275598860926461",true));
 
 
